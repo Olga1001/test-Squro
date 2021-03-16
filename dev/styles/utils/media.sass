@@ -1,0 +1,128 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 980px) 
+    .align-items-lg-center
+        display: flex 
+        align-items: center
+    .d-lg-none 
+        display: none
+    .d-lg-block
+        display: block
+@media only screen and (min-width : 768px)
+    .d-md-none
+        display: none
+    
+@media only screen and (min-width : 576px)
+    .d-sm-block 
+        display: block
+
+@media only screen and (max-width : 1700px)
+    .tooltip.r-llg 
+        left: auto 
+        right: calc(100% + 10px) 
+        &:before, &:after
+            left: auto
+            transform: translateY(-50%) scaleX(-1);
+        &:before
+            left: 100%
+        &:after
+            left: calc(100% - 1px)
+
+@media only screen and (max-width : 979px)
+    .container 
+        max-width: 768px
+    .points-left, .points-right
+        width: 100% 
+        .btn
+            margin-top: 20px
+    .header 
+        padding: 20px 15px
+    .navtop
+        margin: 0
+        position: fixed 
+        right: 0
+        top: 74px
+        padding: 10px
+        width: 80% 
+        height: calc(100% - 74px)
+        background-color: $bg-black
+        opacity: 0 
+        pointer-events: none 
+        transform: translateX(100px)
+        transition: all 0.3s ease
+        &.active 
+            opacity: 1
+            pointer-events: auto 
+            transform: translateX(0)
+
+    .burger
+        display: block
+    .menu 
+        display: block
+    .menu-link
+        line-height: 1.2 
+        text-transform: uppercase
+        padding: 10px 0 10px 25px
+        border-bottom: 1px solid #202020
+        position: relative
+        &:before 
+            content: ''
+            +centerY 
+            left: 0 
+            border-radius: 50% 
+            +box(15px)
+            background-color: $gray
+    .dropdown 
+        position: static 
+        display: none
+    .menu-item:hover .dropdown
+        display: block
+    .dropdown-link 
+        border: none 
+        padding: 0
+    .dropdown-title 
+        margin-bottom: 20px
+    .select-lang
+        background-color: $bg-white
+        background-position-x: 10px
+        padding: 10px 40px
+        .select-item
+            color: $black
+            width: 100%
+    .select-lang:before
+        background-image: url(../img/common/arrow-down.svg)
+        right: 15px
+    .form 
+        .w-33, .w-50 
+            width: 100%
+            margin-right: 0
+    
+    .tooltip
+        max-width: 250px 
+        left: auto 
+        right: calc(100% + 10px) 
+        &:before, &:after
+            left: auto
+            transform: translateY(-50%) scaleX(-1);
+        &:before
+            left: 100%
+        &:after
+            left: calc(100% - 1px)
+@media only screen and (max-width : 767px)
+    .container 
+        max-width: 100%
+    .btn-i:hover .tooltip
+        opacity: 1
+        pointer-events: auto
+@media only screen and (max-width : 575px)
+    .title1 
+        font-size: 50px
+    .points-col
+        width: 100% 
+        padding-right: 0
+@media only screen and (max-width : 479px)
+    .title1
+        font-size: 36px

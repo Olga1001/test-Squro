@@ -1,0 +1,52 @@
+.btn 
+    background-color: $yellow
+    border-radius: 2px
+    line-height: 47px
+    font-size: 18px
+    color: $black
+    min-width: 217px 
+    display: block 
+    text-align: center 
+    width: fit-content
+    transition: all 0.3s ease 
+    border: 1px solid transparent
+    &:hover 
+        border-color: $yellow
+        color: $yellow
+        background-color: transparent
+
+.btn-b-y
+    letter-spacing: -0.025em
+    color: $yellow
+    border: 1px solid $yellow
+    border-radius: 2px
+    line-height: 34px
+    padding: 0 21px
+    transition: all 0.3s ease 
+    &:hover 
+        background-color: $yellow
+
+
+.btn-i 
+    +box(45px,49px)
+    color: #007ff2
+    font-weight: 700
+    text-align: center
+    border-left: 1px solid #ececec
+    background-color: #f9f9f9
+    position: relative
+    &:focus 
+        .tooltip
+            opacity: 1 
+            pointer-events: auto
+
+.btn-white 
+    border: 2px solid #ececec
+    +d-flex(center)
+    font-weight: 700
+    color: $gray
+    line-height: 45px
+    cursor: pointer
+    transition: all 0.3s ease
+    &:hover 
+        background-color: rgba($gray, 0.1)

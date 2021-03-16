@@ -1,0 +1,48 @@
+header.header
+    .align-items-center
+        a.logo(href="#") Logo 
+
+        .container.flex-center-between
+            nav.navtop#navtop
+                .select.select-lang.d-lg-none#select-lang
+                    .select-item 
+                        .select-current English
+                    ul.select-dropdown 
+                        li.select-option English
+                        li.select-option Russian
+                ul.menu 
+                    each val, index in ['Home', 'About us', 'Our News', 'Blog', 'Contacts', 'Faq']
+                        li.menu-item
+                            a.menu-link(href="#")=val
+                            .dropdown 
+                                .dropdown-item 
+                                    p.dropdown-title Submenu 01
+                                    a.dropdown-link(href="#") Excepteur sint
+                                    a.dropdown-link(href="#") Occaecat cupidatat
+                                .dropdown-item 
+                                    p.dropdown-title Submenu 02
+                                    a.dropdown-link(href="#") Adipisci velit
+                                    a.dropdown-link(href="#") Magnam aliquam
+                                    a.dropdown-link(href="#") Error sit voluptatem
+                .d-lg-none.mt-20
+                    .align-items-center 
+                        a.mr-20(href="#") Sign in 
+                        a.btn-b-y(href="#") Reqistration
+                
+
+            .align-items-lg-center.d-none 
+                a.mr-20(href="#") Sign in 
+                a.btn-b-y(href="#") Reqistration
+        
+        .select.select-lang.d-lg-block.d-none 
+            .select-item 
+                .select-current English
+            ul.select-dropdown 
+                li.select-option English
+                li.select-option Russian
+        button.burger#burger 
+            span.burger-line.burger-line-top
+            span.burger-line.burger-line-center
+            span.burger-line.burger-line-bottom
+
+            

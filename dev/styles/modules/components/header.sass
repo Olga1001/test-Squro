@@ -1,0 +1,99 @@
+.logo 
+    color: #ffd981 
+    font-weight: 700 
+    font-size: 28px
+
+.header 
+    border-bottom: 1px solid #414144
+    padding: 0 40px
+    position: sticky
+    top: 0 
+    z-index: 8
+    width: 100%
+    background-color: $bg-dark
+    .container 
+        max-width: 1005px
+        
+.navtop 
+    margin-left: 31px
+
+.menu 
+    +d-flex(center)
+    position: relative
+    &-link
+        letter-spacing: -0.025em
+        border-bottom: 3px solid transparent
+        padding: 0 14px
+        line-height: 97px
+    &-item
+        &.active .menu-link
+            color: $yellow
+            border-color: $yellow
+        &:hover 
+            .menu-link
+                color: $yellow
+                border-color: $yellow
+            .dropdown 
+                opacity: 1
+                pointer-events: auto
+
+.dropdown 
+    position: absolute
+    top: 100%
+    left: 0
+    padding: 14px 10px
+    background-color: $bg-black
+    border-bottom: 3px solid $yellow
+    display: flex 
+    opacity: 0 
+    pointer-events: none 
+    transition: all 0.3s ease
+        
+    &-item 
+        width: 220px 
+        padding: 10px
+    &-title 
+        font-weight: 700
+        letter-spacing: -0.025em
+        color: $gray
+        margin-bottom: 28px
+    &-link 
+        line-height: 30px
+        font-weight: 400
+        letter-spacing: -0.025em
+        color: $white
+        border-bottom: 1px solid #202020
+        padding: 0 8px
+
+
+
+
+.burger
+    +box(27px,14px)
+    position: relative
+    flex-shrink: 0
+    z-index: 9
+    display: none
+    &-line
+        background-color: $bg-white
+        border-radius: 1.5px
+        +centerX
+        +box(19px,2px)
+        transition: all 0.3s ease
+        &-top
+            top: 0
+        &-center
+            top: 50% 
+            transform: translate(-50%,-50%)
+        &-bottom
+            bottom: 0
+    &.active 
+        .burger-line-top
+            top: 50% 
+            transform: translate(-50%,-50%) rotate(225deg)
+        .burger-line-center
+            opacity: 0
+        .burger-line-bottom
+            top: 50% 
+            transform: translate(-50%,-50%) rotate(-225deg)
+

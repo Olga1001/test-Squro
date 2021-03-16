@@ -1,0 +1,419 @@
+@import "utils/libs"
+@import "utils/vars"
+@import "utils/mixins"
+@import "utils/fonts"
+@import "utils/sprite"
+
+html 
+  font-family: "Gilroy", sans-serif
+  font-size: 16px
+  line-height: 1.2
+  height: 100%
+
+body 
+  height: 100%
+  scroll-behavior: smooth
+  text-rendering: optimizeSpeed
+  font-size: $base-font-size
+  line-height: 1.2
+  font-weight: 400
+  font-family: "Gilroy", sans-serif
+  font-style: normal
+  color: $white
+  background-color: $bg-dark
+
+*, *::before, *::after
+  box-sizing: border-box
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button 
+  -webkit-appearance: none
+  margin: 0
+
+/* Firefox */
+input[type=number]
+  -moz-appearance: textfield
+
+input[type="date"]::-webkit-inner-spin-button, input[type="date"]::-webkit-calendar-picker-indicator
+  opacity: 0
+  -webkit-appearance: none
+  appearance: none
+
+input[type="date"]::-webkit-datetime-edit-year-field:not([aria-valuenow]), input[type="date"]::-webkit-datetime-edit-month-field:not([aria-valuenow]), input[type="date"]::-webkit-datetime-edit-day-field:not([aria-valuenow])
+  color: $black
+
+input[type="date"]
+  &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder
+    font-family: 'Gilroy', sans-serif
+    font-size: 16px
+    line-height: 1.2
+    font-weight: 400
+    color: $gray
+
+*::-webkit-input-placeholder
+  font-family: 'Gilroy', sans-serif
+  font-size: 16px
+  line-height: 1.2
+  font-weight: 400
+  color: $gray
+
+*:-moz-placeholder
+  font-family: 'Gilroy', sans-serif
+  font-size: 16px
+  line-height: 1.2
+  font-weight: 400
+  color: $gray
+
+*::-moz-placeholder
+  font-family: 'Gilroy', sans-serif
+  font-size: 16px
+  line-height: 1.2
+  font-weight: 400
+  color: $gray
+
+*:-ms-input-placeholder
+  font-family: 'Gilroy', sans-serif
+  font-size: 16px
+  line-height: 1.2
+  font-weight: 400
+  color: $gray
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul
+  margin: 0
+  padding: 0
+  font-weight: normal
+
+ol, ul 
+  list-style: none
+
+ol
+  counter-reset: li
+
+img 
+  max-width: 100%
+  display: block
+  object-fit: contain
+
+input, button, textarea, select
+  font: inherit
+
+button 
+    padding: 0
+    cursor: pointer
+    border: none
+    
+audio, canvas, iframe, img, svg, video, textarea
+  vertical-align: middle
+
+svg 
+  flex-shrink: 0
+  fill: none
+  
+textarea
+  resize: none
+  width: 100%
+  outline: none
+  appearance: none
+  height: 119px
+
+section
+  position: relative
+
+input, select, button 
+  outline: none
+  background-color: transparent
+
+a 
+  text-decoration: none
+  transition: all 0.3s ease
+  color: $white
+  display: block
+
+p a 
+  display: inline 
+
+input
+  height: 49px 
+  &.input-date 
+    background: #f9f9f9 url("../img/common/calendar.svg") no-repeat right 15px center / 13px
+    
+input, textarea
+  width: 100%
+  appearance: none
+  font-family: 'Gilroy', sans-serif
+  font-size: 16px
+  line-height: 1.2
+  font-weight: 400
+  color: $gray
+  padding: 15px 16px 
+  border: none
+  background-color: #f9f9f9
+
+table
+  border-spacing: 0
+  border-collapse: collapse
+  width: 100% 
+
+select 
+  border: none 
+  color: $white 
+  background: none
+  font-family: "Gilroy", sans-serif
+  font-size: 16px
+  line-height: 1.2
+
+option 
+  background: none
+  color: $black
+  
+.title1 
+  font-size: 60px
+  line-height: 1.2
+  font-weight: 400
+
+.title2
+  font-size: 30px
+  line-height: 1.2
+  font-weight: 400
+  color: $gray
+
+.container 
+  max-width: $desktop
+  width: 100% 
+  padding: 0 15px
+  margin: 0 auto
+ 
+.select
+  position: relative
+  width: 80px 
+  background-color: #f9f9f9
+  cursor: pointer
+  font-size: 16px
+  font-weight: 400
+  line-height: 1.2
+  color: $gray
+  &:before 
+    content: ''
+    +centerY 
+    right: 15px
+    +box(11px)
+    z-index: 2 
+    pointer-events: none
+    background: url("../img/common/arrow-down.svg") no-repeat center / contain
+  
+  &-item 
+    padding: 15px 16px
+    &_flag 
+      padding: 15px 16px
+      img
+        +box(16px,11px)
+        margin: auto
+        display: inline
+        object-fit: cover
+    
+  &-option 
+    padding: 10px 15px
+    background-color: #f9f9f9
+    &_flag
+      padding: 10px 15px
+      background-color: #f9f9f9
+  &-dropdown 
+    position: absolute 
+    left: 0 
+    top: 100%
+    width: 100% 
+    display: none
+    z-index: 1
+    img 
+      +box(16px,11px)
+      object-fit: cover
+  
+  &-lang  
+    background: url("../img/common/lang-icon.png") no-repeat left center / 24px 
+    padding: 5px 20px 5px 34px
+    width: auto
+    .select-item 
+      padding: 0
+      color: $white
+    &:before 
+      right: 0
+      background-image: url("../img/common/arrow-down-white.svg")
+
+.show 
+  .select-dropdown
+    display: block
+  &:before 
+    transform: translateY(-50%) scaleY(-1) 
+
+.first 
+  overflow: hidden
+  .container
+    padding: 130px 15px 180px
+  &-img
+    +centerY
+    left: 50%
+    +box(776px,704px)
+    z-index: -1
+    object-fit: cover
+
+.swiper-slide
+  opacity: 0!important
+  pointer-events: none!important
+  &.swiper-slide-active
+    opacity: 1!important
+    pointer-events: auto!important
+  .btn 
+    margin-top: 50px
+  .title1
+    max-width: 600px
+
+.swiper-pagination
+  text-align: left
+  bottom: 40px
+
+.swiper-pagination-bullet
+  width: 12px
+  height: 12px
+  background-color: $bg-white
+  border-radius: 6px
+  margin-right: 18px
+  opacity: 1
+  outline: none
+
+.swiper-pagination-bullet-active
+  background-color: $bg-yellow
+
+.points 
+  background-color: $bg-white 
+  padding: 40px 0
+  &-col 
+    width: 50% 
+    margin-top: 25px
+    padding-right: 30px
+  &-left 
+    width: calc(100% - 300px)
+  &-right
+    width: 300px
+    margin-top: 25px
+
+.count
+  font-size: 35px
+  line-height: 1.2
+  font-weight: 700
+  color: #323a45
+  padding-top: 3px
+
+.range
+  margin-bottom: 33px
+
+input[type='range'] 
+  width:  100%
+  -webkit-appearance: none
+  background-color: #ececec
+  padding: 0
+  height: auto
+
+input[type='range']::-webkit-slider-runnable-track
+  height: 5px
+  -webkit-appearance: none
+  color: #13bba4
+  margin-top: -1px
+
+input[type='range']::-webkit-slider-thumb
+  width: 25px
+  -webkit-appearance: none
+  height: 25px
+  cursor: ew-resize
+  background: $yellow url("../img/common/rectangle_746_7900.png") no-repeat center / 5px
+  border-radius: 50%
+  margin-top: -10px
+  position: relative
+  border: none
+
+.seventh 
+  background-color: $bg-white
+  padding: 40px 0
+  overflow: hidden
+
+.tooltip
+  +centerY
+  left: calc(100% + 10px)
+  background-color: #f9eeb8
+  border: 1px solid #dfcb98
+  font-size: 14px
+  line-height: 14px
+  font-weight: 400
+  padding: 11px 10px
+  color: #525c69
+  max-width: 312px
+  width: max-content
+  z-index: 2
+  opacity: 0 
+  pointer-events: none
+  text-align: left
+  &:before, &:after
+    content: ''
+    +centerY
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 10px 10px 10px 0
+  &:before 
+    right: 100%
+    border-color: transparent #dfcb98 transparent transparent
+  &:after
+    right: calc(100% - 1px
+    border-color: transparent #f9eeb8 transparent transparent
+
+.icon-paperclip 
+  +box(15px)
+
+@import "modules/modules"
+
+.relative
+  position: relative
+
+
+.w-33
+  width: 33.33% 
+
+.w-50
+  width: 50% 
+
+.w-100
+  width: 100%
+
+// .w-fit-content 
+//   width: fit-content
+
+// .max-w-100
+//   max-width: 100%
+
+// .line-clamp
+//   display: block
+//   display: -webkit-box
+//   -webkit-box-orient: vertical
+//   position: relative
+//   line-height: 22px
+//   overflow: hidden
+//   text-overflow: ellipsis
+
+// .line-clamp:after
+//   content: '...'
+//   text-align: center
+//   bottom: 0
+//   right: 0
+//   width: 25%
+//   display: block
+//   position: absolute
+//   height: calc(1em * 22px)
+//   color: $brown-100
+//   background: linear-gradient(to left, rgba(241, 242, 246, 0.1), rgba(241, 242, 246, 0.5) 75%)
+
+// @supports (-webkit-line-clamp: 2)
+//   .line-clamp:after
+//     display: none !important
+//   .line-clamp
+//     -webkit-line-clamp: 2
+//     height: calc(1em * 22px * 2)
+
+@import "utils/media"

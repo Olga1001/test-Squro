@@ -1,0 +1,107 @@
+extends layout/main
+
+block variables
+	-var title = 'Main Page'
+
+block content
+	section.first#box 
+		.container.relative
+			.first-img
+				img#animate.d-sm-block.d-none(src="img/common/layer_697_10108.png", alt="img")
+			.swiper-container 
+				.swiper-wrapper 
+					each val in ['Sed ut perspiciatis unde omnis iste natus error 5000','Sed ut perspiciatis unde omnis iste natus error 6000','Sed ut perspiciatis unde omnis iste natus error 6000']
+						.swiper-slide
+							h2.title1#animate2=val
+							a.btn(href="#") Learn Now!
+			.swiper-pagination
+
+	.points
+		.container 
+			h3.title2 Voluptatem points doluptas sit <br> Aspernatur aut 2000
+			.justify-content-between.flex-wrap
+				.points-left
+					.flex-wrap
+						.points-col 
+							p.fw-bold.c-gray-200 Value 01 
+								span.c-red *
+							p.count#count1 120
+							input.range#range1(type="range" min="1" max="2000" value="120" oninput="fun1(); mult()")
+						.points-col 
+							p.fw-bold.c-gray-200 Value 02
+								span.c-red *
+							p.count#count2 2000
+							input.range#range2(type="range" min="1" max="3000" value="2000" oninput="fun2(); mult()")
+					p
+						span.c-red * 
+						span.fw-bold.c-gray-700 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				.flex-column.justify-content-between.points-right
+					.text-right
+						p.fw-bold.c-gray-200 Value 03 
+						p.count
+							span#sumcount.mr-6 240 000 
+							| Points
+					a.btn.w-100(href="#") See more values
+	section.seventh 
+		.container 
+			h3.title2.c-black Excepteur sint cupidatat non proident?
+			form.form 
+				.flex-wrap 
+					.w-33.mb-20.relative
+						input(type="text" placeholder="First Name" required)
+						span.error
+					.w-33.mb-20.relative 
+						input(type="text" placeholder="Last Name" required)
+						span.error
+					.w-33.mb-20.relative 
+						input(type="text" placeholder="Email Address" required)
+						span.error
+				.flex-wrap 
+					.w-50.mb-20
+						.d-flex 
+							.select.mr-10 
+								.select-item_flag 
+									img(src="img/flags/afghanistan.svg", alt="afghanistan")
+								ul.select-dropdown 
+									li.select-option_flag(data-flag="img/flags/afghanistan.svg" data-code="+93")
+										img(src="img/flags/afghanistan.svg", alt="afghanistan")
+									li.select-option_flag(data-flag="img/flags/united-kingdom.svg" data-code="+44")
+										img(src="img/flags/united-kingdom.svg", alt="united-kingdom")
+							.relative.w-100.d-flex
+								input#input-code(type="text" placeholder="+93")
+								button.btn-i(type="button") i
+									span.tooltip Lorem ipsum dolor sit amet, consectetur adipisicing elitaliqua.
+								span.error
+					.w-50.mb-20
+						.relative.w-100.d-flex
+							input.input-date(type="date" placeholder="Expire Date")
+							button.btn-i(type="button") i
+								span.tooltip.r-llg Lorem ipsum dolor sit amet, consectetur adipisicing elitaliqua.
+							span.error
+					.w-50
+						.relative.w-100.d-flex.mb-20
+							input(type="text" placeholder="Zipcode")
+							button.btn-i(type="button") i
+								span.tooltip Lorem ipsum dolor sit amet, consectetur adipisicing elitaliqua.
+							span.error
+						.relative.w-100.d-flex.mb-20
+							.select.w-100 
+								.select-item 
+									.select-current Country
+								ul.select-dropdown 
+									li.select-option Country1
+									li.select-option Country2
+							button.btn-i(type="button") i
+								span.tooltip Lorem ipsum dolor sit amet, consectetur adipisicing elitaliqua.
+							span.error
+					.w-50.mb-20
+						.relative.w-100
+							textarea(cols="10", rows="5" ) Your message
+							span.error
+					.w-50.mb-20
+						label.btn-white 
+							input.d-none(type="file")
+							+icon("paperclip","mr-10 c-gray")
+							span Attach your file
+					.w-50.mb-20
+						button.btn.w-100(type="submit") Sent
