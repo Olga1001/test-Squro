@@ -19,19 +19,19 @@ var swiper = new Swiper('.swiper-container', {
   }
 }); // range 
 
-function fun1() {
-  var p = document.getElementById('count1');
-  p.innerHTML = rng1.value;
+function writingRangeValues1() {
+  var value1 = document.getElementById('value1');
+  value1.innerHTML = rng1.value;
 }
 
-function fun2() {
-  var p = document.getElementById('count2');
-  p.innerHTML = rng2.value;
+function writingRangeValues2() {
+  var value2 = document.getElementById('value2');
+  value2.innerHTML = rng2.value;
 }
 
-function mult() {
-  var sumcount = document.getElementById('sumcount');
-  sumcount.innerHTML = rng1.value * rng2.value;
+function multValues() {
+  var value3 = document.getElementById('value3');
+  value3.innerHTML = rng1.value * rng2.value;
 } // select
 
 
@@ -80,31 +80,38 @@ var select = function select() {
 };
 
 select(); // menu
-// show mune
+// show/hide mune
 
-function showMenu() {
+function openMenu() {
   menu.classList.toggle('active');
   btn.classList.toggle('active');
-} // hide mune
+} // hide menu on click under 
 
 
-function hideMenu(e) {
-  if (e.target.id != 'burger' && e.target.id != 'navtop') {
-    menu.classList.remove('active');
-    btn.classList.remove('active');
+function closeMenu(e) {
+  var target = e.target;
+  var its_menu = target == menu || menu.contains(target);
+  var its_hamburger = target == btn;
+  var menu_is_active = menu.classList.contains('active');
+
+  if (!its_menu && !its_hamburger && menu_is_active) {
+    openMenu();
   }
 } // hide menu on ESC
 
 
-function closeESC(evt) {
-  if (evt.keyCode == 27) {
+function closeESC(e) {
+  if (e.keyCode == 27) {
     menu.classList.remove('active');
     btn.classList.remove('active');
   }
 }
 
-document.getElementById('burger').addEventListener('click', showMenu);
-document.querySelector('html').addEventListener('click', hideMenu);
+document.getElementById('burger').addEventListener('click', function (e) {
+  e.stopPropagation();
+  openMenu();
+});
+document.addEventListener('click', closeMenu);
 document.querySelector('html').addEventListener('keydown', closeESC); // MouseHover Animation
 
 var boxElem = document.getElementById('box');

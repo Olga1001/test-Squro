@@ -25,21 +25,21 @@ block content
 						.points-col 
 							p.fw-bold.c-gray-200 Value 01 
 								span.c-red *
-							p.count#count1 120
-							input.range#range1(type="range" min="1" max="2000" value="120" oninput="fun1(); mult()")
+							p.value#value1 120
+							input.range#range1(type="range" min="1" max="2000" value="120" oninput="writingRangeValues1(); multValues()")
 						.points-col 
 							p.fw-bold.c-gray-200 Value 02
 								span.c-red *
-							p.count#count2 2000
-							input.range#range2(type="range" min="1" max="3000" value="2000" oninput="fun2(); mult()")
+							p.value#value2 2000
+							input.range#range2(type="range" min="1" max="3000" value="2000" oninput="writingRangeValues2(); multValues()")
 					p
 						span.c-red * 
 						span.fw-bold.c-gray-700 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				.flex-column.justify-content-between.points-right
 					.text-right
 						p.fw-bold.c-gray-200 Value 03 
-						p.count
-							span#sumcount.mr-6 240 000 
+						p.value
+							span#value3.mr-6 240 000 
 							| Points
 					a.btn.w-100(href="#") See more values
 	section.seventh 
@@ -74,7 +74,7 @@ block content
 								span.error
 					.w-50.mb-20
 						.relative.w-100.d-flex
-							input.input-date(type="date" placeholder="Expire Date")
+							input.input-date(type="text" placeholder="Expire Date" onfocus="(this.type='date')")
 							button.btn-i(type="button") i
 								span.tooltip.r-llg Lorem ipsum dolor sit amet, consectetur adipisicing elitaliqua.
 							span.error

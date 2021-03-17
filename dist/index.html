@@ -24,7 +24,7 @@
                   <li class="select-option">Russian</li>
                 </ul>
               </div>
-              <ul class="menu"> 
+              <ul class="menu" id="menu"> 
                 <li class="menu-item"><a class="menu-link" href="#">Home</a>
                   <div class="dropdown"> 
                     <div class="dropdown-item"> 
@@ -131,13 +131,13 @@
               <div class="flex-wrap">
                 <div class="points-col"> 
                   <p class="fw-bold c-gray-200">Value 01 <span class="c-red">*</span></p>
-                  <p class="count" id="count1">120</p>
-                  <input class="range" id="range1" type="range" min="1" max="2000" value="120" oninput="fun1(); mult()">
+                  <p class="value" id="value1">120</p>
+                  <input class="range" id="range1" type="range" min="1" max="2000" value="120" oninput="writingRangeValues1(); multValues()">
                 </div>
                 <div class="points-col"> 
                   <p class="fw-bold c-gray-200">Value 02<span class="c-red">*</span></p>
-                  <p class="count" id="count2">2000</p>
-                  <input class="range" id="range2" type="range" min="1" max="3000" value="2000" oninput="fun2(); mult()">
+                  <p class="value" id="value2">2000</p>
+                  <input class="range" id="range2" type="range" min="1" max="3000" value="2000" oninput="writingRangeValues2(); multValues()">
                 </div>
               </div>
               <p><span class="c-red">* </span><span class="fw-bold c-gray-700">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
@@ -145,7 +145,7 @@
             <div class="flex-column justify-content-between points-right">
               <div class="text-right">
                 <p class="fw-bold c-gray-200">Value 03 </p>
-                <p class="count"><span class="mr-6" id="sumcount">240 000 </span>Points</p>
+                <p class="value"><span class="mr-6" id="value3">240 000 </span>Points</p>
               </div><a class="btn w-100" href="#">See more values</a>
             </div>
           </div>
@@ -184,7 +184,7 @@
               </div>
               <div class="w-50 mb-20">
                 <div class="relative w-100 d-flex">
-                  <input class="input-date" type="date" placeholder="Expire Date">
+                  <input class="input-date" type="text" placeholder="Expire Date" onfocus="(this.type='date')">
                   <button class="btn-i" type="button">i<span class="tooltip r-llg">Lorem ipsum dolor sit amet, consectetur adipisicing elitaliqua.</span></button><span class="error"></span>
                 </div>
               </div>

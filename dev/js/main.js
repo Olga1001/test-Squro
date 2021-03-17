@@ -20,26 +20,26 @@ const swiper = new Swiper('.swiper-container', {
 });
 
 // range 
-function fun1() {
-	var p = document.getElementById('count1'); 
-	p.innerHTML = rng1.value;
+function writingRangeValues1() {
+	var value1 = document.getElementById('value1'); 
+	value1.innerHTML = rng1.value;
 }
-function fun2() {
-	var p = document.getElementById('count2'); 
-	p.innerHTML = rng2.value;
+function writingRangeValues2() {
+	var value2 = document.getElementById('value2'); 
+	value2.innerHTML = rng2.value;
 }
-function mult() {
-	var sumcount = document.getElementById('sumcount'); 
-  sumcount.innerHTML = rng1.value * rng2.value;
+function multValues() {
+	var value3 = document.getElementById('value3'); 
+  value3.innerHTML = rng1.value * rng2.value;
 }
 
 // select
-let select = function () {
-  let selectItem = document.querySelectorAll('.select-item');
-  let selectOption = document.querySelectorAll('.select-option');
+var select = function () {
+  var selectItem = document.querySelectorAll('.select-item');
+  var selectOption = document.querySelectorAll('.select-option');
 
-  let selectFlag = document.querySelectorAll('.select-item_flag');
-  let selectOptionFlag = document.querySelectorAll('.select-option_flag');
+  var selectFlag = document.querySelectorAll('.select-item_flag');
+  var selectOptionFlag = document.querySelectorAll('.select-option_flag');
 
   selectItem.forEach(item => {
     item.addEventListener('click', selectToggle);
@@ -62,7 +62,7 @@ let select = function () {
   }
 
   function selectChoose() {
-    let text = this.innerText,
+    var text = this.innerText,
         select = this.closest('.select'),
         currentText = select.querySelector('.select-current');
     currentText.innerText = text;
@@ -71,7 +71,7 @@ let select = function () {
   }
 
   function selectChooseFlag() {
-    let data = this.getAttribute('data-flag'),
+    var data = this.getAttribute('data-flag'),
         alt = this.getAttribute('alt'),
         select = this.closest('.select'),
         codeContry = this.getAttribute("data-code"),
@@ -88,28 +88,35 @@ let select = function () {
 select();
 
 // menu
-// show mune
-function showMenu() {
+// show/hide mune
+function openMenu() {
   menu.classList.toggle('active');
   btn.classList.toggle('active');
 }
-// hide mune
-function hideMenu(e) {
-  if(e.target.id != 'burger' && e.target.id != 'navtop'){
-    menu.classList.remove('active');
-    btn.classList.remove('active');
+// hide menu on click under 
+function closeMenu(e) {
+  var target = e.target;
+  var its_menu = target == menu || menu.contains(target);
+  var its_hamburger = target == btn;
+  var menu_is_active = menu.classList.contains('active');
+  
+  if (!its_menu && !its_hamburger && menu_is_active) {
+    openMenu();
   }
 }
 // hide menu on ESC
-function closeESC(evt) {
-  if (evt.keyCode == 27) {
+function closeESC(e) {
+  if (e.keyCode == 27) {
     menu.classList.remove('active');
     btn.classList.remove('active');
   }
 }
 
-document.getElementById('burger').addEventListener('click', showMenu);
-document.querySelector('html').addEventListener('click', hideMenu);
+document.getElementById('burger').addEventListener('click', e => {
+  e.stopPropagation();
+  openMenu();
+});
+document.addEventListener('click', closeMenu);
 document.querySelector('html').addEventListener('keydown', closeESC);
 
 
