@@ -123,4 +123,4 @@ function onMouseMove(event) {
   pointerElem.style.transform = "translate3d(" + mouseX + "px," + mouseY + "px, 0)";
 }
 
-boxElem.addEventListener('mousemove', onMouseMove, false);
+boxElem.addEventListener('mousemove', onMouseMove, false); // graphic

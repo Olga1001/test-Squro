@@ -42,6 +42,9 @@ block content
 							span#value3.mr-6 240 000 
 							| Points
 					a.btn.w-100(href="#") See more values
+	section.section-chart
+		#chart
+
 	section.seventh 
 		.container 
 			h3.title2.c-black Excepteur sint cupidatat non proident?
@@ -105,3 +108,8 @@ block content
 							span Attach your file
 					.w-50.mb-20
 						button.btn.w-100(type="submit") Sent
+block script  
+	script(src="https://cdn.amcharts.com/lib/4/core.js")
+	script(src="https://cdn.amcharts.com/lib/4/charts.js")
+	script(src="https://cdn.amcharts.com/lib/4/themes/animated.js")
+	script(src="js/chart.js")
